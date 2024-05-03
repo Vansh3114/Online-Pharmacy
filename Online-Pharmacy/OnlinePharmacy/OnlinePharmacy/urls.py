@@ -22,8 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include('myapp.urls')),
     path('product/', include('product.urls')),
-    path('core/',include('product.urls')),
-    path('admin/', admin.site.urls),
+    #path('core/',include('product.urls')),
     path('accounts/', include('login.urls')),  # Assuming login URLs are in login.urls module
     path('signup/', include('signup.urls')),    # Assuming signup URLs are in signup.urls module
     path('forgot_password/', include('forgot_password.urls')),  # Include your forgot_password app's URLs

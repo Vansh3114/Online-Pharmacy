@@ -58,11 +58,29 @@ async def addProducts(product: Products):
 
 
 # get specific product data
-@app.get("/products/{product_name}")
+@app.get("/products/prod={product_name}")
 async def fetchAllProducts(product_name: str):
     data_cursor = ProdCollection.find({
         "ProductName": {
             "$regex": product_name,
+            "$options": 'i'
+        }
+    })
+
+    data_list = []
+    for document in data_cursor:
+        document["_id"] = str(document["_id"])
+        data_list.append(document)
+
+    return list(data_list)
+
+
+# get category based product
+@app.get("/products/cate={category}")
+async def fetchAllProducts(category: str):
+    data_cursor = ProdCollection.find({
+        "Category": {
+            "$regex": category,
             "$options": 'i'
         }
     })

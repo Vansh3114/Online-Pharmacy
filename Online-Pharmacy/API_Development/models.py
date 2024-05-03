@@ -12,13 +12,15 @@ class Products(BaseModel):
     _id: Optional[str] = uuid4()
     ProductImage: str
     ProductName: str
-    ProductPrice: float
-    ProductManufactorer: str
+    ProductPrice: str
     ProductDescription: str
-    ProductComposition: str
-    ProductUse: str
-    ProductBenefits: str
-    ProductSideEffects: str
+    ProductRatings: str
+    Category: str
+    #ProductManufactorer: str
+    #ProductComposition: str
+    #ProductUse: str
+    #ProductBenefits: str
+    #ProductSideEffects: str
 
 
 class OrderProducts(BaseModel):
